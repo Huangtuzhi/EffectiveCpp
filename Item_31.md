@@ -4,7 +4,7 @@ Item31：Minimize compilation dependencies between files.
 
 ##Code##
 
-`
+``` 
 #include <string>
 #include <memory>
 class PersonImpl;
@@ -49,7 +49,7 @@ std::string PersonImpl::name() const
 {
 	return theName;
 }
-`
+``` 
 
 ##Reference##
 
