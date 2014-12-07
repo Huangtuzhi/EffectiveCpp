@@ -1,13 +1,31 @@
 Item 32：Make sure public inheritance models "is-a."
 -----------------------------------------------
 
-先回顾一下智能指针shared_ptr的用法：
+举例：
 
-由于 C++ 语言没有自动内存回收机制，程序员每次 new 出来的内存都要手动 delete，比如流程太复杂，最终导致没有 delete，异常导致
-程序过早退出，没有执行 delete 的情况并不罕见，并造成内存泄露。如此c++引入智能指针 ，智能指针即是C++ RAII的一种应用，
-可用于动态资源管理，资源即对象的管理策略。
+class Rectangle{
+	public:
+	virtual void setHeight(int newHeight);
+	virtual void setWidth(int newWidth);
+	virtual int height() const;
+	virtual int width() const;
+};
 
+void makeBigger(Rectangle & r)
+{
+	int oldHeight=r.height();
+	r.setWidth(r.width+10);
+	assert(r.height()==oldHeight);
+}
 
+class Square: public Rectangle{};
+Square s;
+assert(s.width()==s.height());
+makeBigger(s);
+assert(s.width()==s.height());
+
+makeBigger用来改变矩形的长度。而继承后的正方形调用makeBigger后，宽和高不一样，因为断言函数
+abort。这里就不能用public继承。
 
 -------------------------------------------
 
