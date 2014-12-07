@@ -1,3 +1,6 @@
+Item 32：Make sure public inheritance models "is-a."
+-----------------------------------------------
+
 先回顾一下智能指针shared_ptr的用法：
 
 由于 C++ 语言没有自动内存回收机制，程序员每次 new 出来的内存都要手动 delete，比如流程太复杂，最终导致没有 delete，异常导致
