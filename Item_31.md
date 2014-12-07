@@ -1,10 +1,12 @@
 Item31：Minimize compilation dependencies between files.
 
 -----------------------------------------------------------------------------------
+一句话总结就是数据从Base类下放到Derived类，调用时由Derived类返回Base类。
 
 ##方法一##
 把Person分为两个classes，一个class A只提供接口，一个class B负责实现。B在A中private中有个指针定义用来关联实现和接口。
 参数由A的构造函数传到B的构造函数里实现赋值。
+
 
 ``` 
 #include <string>
