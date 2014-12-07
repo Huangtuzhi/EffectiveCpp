@@ -88,9 +88,21 @@ void main()
 
 ``` 
 
+##shared_ptr##
+
+先回顾一下智能指针shared_ptr的用法：
+
+由于 C++ 语言没有自动内存回收机制，程序员每次 new 出来的内存都要手动 delete，比如流程太复杂，最终导致没有 delete，异常导致程序过早退出，没有执行 delete 的情况并不罕见，并造成内存泄露。如此c++引入智能指针 ，智能指针即是C++ RAII的一种应用，可用于动态资源管理，资源即对象的管理策略。
+
+类似vector，智能指针也是模板。boost::shared_ptr的管理机制其实并不复杂，就是对所管理的对象进行了引用计数，当新增一个boost::shared_ptr对该对象进行管理时，就将该对象的引用计数加一；减少一个boost::shared_ptr对该对象进行管理时，就将该对象的引用计数减一，如果该对象的引用计数为0的时候，说明没有任何指针对其管理，才调用delete释放其所占的内存。
+
+这样就可以共享资源。
+
 
 ##Reference##
 
 [1].http://blog.csdn.net/ozwarld/article/details/7101974
 
 [2].http://blog.csdn.net/Eric_Jo/article/details/4138548
+
+[3].http://www.cnblogs.com/TianFang/archive/2008/09/19/1294521.html
