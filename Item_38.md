@@ -3,6 +3,7 @@ Model "has-a" or “is-implemented-in-terms-of" through composition.
 ----------------------------------
 以下就是复合类型中的has-a关系，Person包含了预先定义的类。
 
+```
 class Address{...}
 class PhoneNumber{...}
 class Person{
@@ -14,9 +15,11 @@ class Person{
         PhoneNumber voiceNumber;
         PhoneNumber faxNumber;
 };
+```
 
 下面是is-implemented-in-terms-of关系,Set根据List实现。
 
+```
 template <class T>
 class Set{
     public:
@@ -52,6 +55,8 @@ std::size_t Set<T>::size() const
 {
     return rep.size();
 }
+```
+
 
 -----------------------------------------
 
