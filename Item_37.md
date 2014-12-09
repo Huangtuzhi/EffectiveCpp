@@ -25,3 +25,7 @@ private:
 }
 
 ```
+
+以上是所谓的NVI（non-virtual interface）方法。
+
+virtual函数是动态绑定的（dynamically bound)，而缺省参数值却是静态绑定（statically bound)。
