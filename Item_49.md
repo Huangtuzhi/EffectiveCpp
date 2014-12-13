@@ -18,3 +18,15 @@ void main()
 typedef char (*PFun)(int) //PFun成了一种新的定义，参数为int，返回值为char。
 PFun glFun;
 ```
+
+申明于<new>的一个标准函数库函数：
+
+```
+namespcae std{
+typedef void (*new_handler)();
+new_handler set_new_handler(new_handler p) throw;
+}
+```
+
+`set_new_handler`用来设置用户使用new时异常调用的用户处理函数。
+
